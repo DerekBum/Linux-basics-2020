@@ -1,13 +1,66 @@
 # print your command here
 
-a. git init ...
+a. git init linuxprog
 
 b.
+touch bio.md
+touch main.cpp
+cat >> bio.md
+Hola!
+^D
+cat >> main.cpp
+#include <iostream>
+using namespace std;
+int main() {
+cout << "Hello!";
+}
+^D
+git add .
+git commit -m "Add bio and main"
 
 c.
+touch Makefile
+cat >> Makefile
+SHELL := /bin/bash
+all: run_main clean
+build_main: ./main.cpp
+	g++ ./main.cpp -o main
+run_main: build_main
+	./main
+clean:
+	rm main
+^D
+make
+git add Makefile
+git commit -m "Add Makefile"
 
 d.
+echo "Привет" > bio.md
+git add bio.md
+git commit -m "Update bio.md"
+echo "Hola!" >> bio.md
+git add bio.md
+git commit -m "Update bio.md"
+echo "Hello!" >> bio.md
+git add bio.md
+git commit -m "Update bio.md"
 
 e.
+git log
+Далее я запоминаю хэш коммита Add bio and main
+git checkout -b cmake <hash>
+touch CMakeLists.txt
+cat >> CMakeLists.txt
+cmake_minimum_required(VERSION 3.10)
+project(hw5)
+set(EXEC hello)
+set(CMAKE_CXX_STANDARD 14)
+include_directories(includes)
+file(GLOB SOURCES *.cpp)
+add_executable(${EXEC} ${SOURCES})
+^D
 
 f.
+git checkout master
+git merge cmake
+
