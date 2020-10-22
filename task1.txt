@@ -1,1 +1,9 @@
 # print your commands
+sudo docker run -it --rm haskell:8
+GHCi, version 8.10.2: https://www.haskell.org/ghc/  :? for help
+
+Prelude> 2+3
+5
+
+Prelude> print "Hello world"
+"Hello world"
