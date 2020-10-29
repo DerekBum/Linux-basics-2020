@@ -1,1 +1,36 @@
 # print your commands
+
+$ sudo docker build -t myname:latest .
+
+Sending build context to Docker daemon  942.1kB
+Step 1/4 : FROM python:3
+ ---> 5336a27a9b1f
+Step 2/4 : COPY . .
+ ---> Using cache
+ ---> 6b9a98c3ea9c
+Step 3/4 : EXPOSE 65432
+ ---> Using cache
+ ---> c529074be5ea
+Step 4/4 : CMD ["python3", "src/server.py"]
+ ---> Using cache
+ ---> d76dacdc98cf
+Successfully built d76dacdc98cf
+Successfully tagged myname:latest
+
+$ sudo docker run -it --rm -d -p 65432:65432 myname
+
+dbc3318f95777237c822614c3c66d926fd5c8783764b233685d18cffb18d3e00
+
+$ telnet localhost 65432
+
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+finally
+OK:finally
+NO
+OK:NO
+^]
+telnet> Connection closed.
+
+
